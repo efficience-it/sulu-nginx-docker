@@ -36,7 +36,7 @@ RUN apk add --update --no-cache --virtual .build-dependencies $PHPIZE_DEPS \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     ln -s $(composer config --global home) /root/composer
 
-RUN echo "memory_limit = 2512M" >> /usr/local/etc/php/php.ini
+COPY php.ini "$PHP_INI_DIR/conf.d/best_practice.ini"
 
 RUN rm -rf /tmp/* /var/cache/apk/*
 ENV PATH=$PATH:/root/composer/vendor/bin COMPOSER_ALLOW_SUPERUSER=1
