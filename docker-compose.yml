@@ -36,16 +36,14 @@ services:
     volumes:
       - db_sulu_data:/var/lib/mysql
   sulu_elasticsearch:
-    image: elasticsearch:7.9.3
+    container_name: sulu_elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.5.1
     ports:
       - "9200:9200"
-    volumes:
-      - data_elastic:/usr/share/elasticsearch/data
     environment:
       discovery.type: single-node
       xpack.security.enabled: 'false'
 
 volumes:
   db_sulu_data:
-  data_elastic:
 
