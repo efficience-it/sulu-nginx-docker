@@ -1,0 +1,14 @@
+/.idea
+/assets
+/bin
+/config
+/public
+/src
+/templates
+/tests
+/translations
+/var
+/vendor
+composer.json
+composer.lock
+/phpunit.xml.dist
